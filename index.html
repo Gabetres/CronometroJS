@@ -1,25 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>\Cronômetro/</title>
+    <title>Cronômetro</title>
 </head>
+
 <body>
-
-    <div class="cronometro">
-        <h1>Cronômetro</h1>
-        <p>Por Gabriel Tres</p>
-
-        <p><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span></p>
-
-        <button id="button-start">Início</button>
-        <button id="button-stop">Parar</button>
-        <button id="button-reset">Limpar</button>
-    </div>
+    <div class="container">
+        <div class="cronometro">
+            <i id="mode-icon" class="fa-solid fa-moon"></i>
+            <div class="container-text">
+                <h1>Cronômetro</h1>
+                <p class="dev">Por Gabriel Tres</p>
     
+                <p class="numbers"><span id="hours">00</span>:<span id="minutes">00</span>:<span
+                        id="seconds">00</span>:<span id="miliseconds">00</span></p>
+    
+                <div class="buttons">
+                    <button id="button-start">Início</button>
+                    <button id="button-stop">Parar</button>
+                    <button id="button-reset">Limpar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="darkmode.js"></script>
 </body>
+
 </html>

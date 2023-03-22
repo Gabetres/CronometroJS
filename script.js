@@ -1,11 +1,11 @@
 window.onload = function () { //Executa o js imediatamente após o carregamento de uma pagina.
-
+    
+    var miliseconds = 000;
     var seconds = 00;
-    var tens = 00;
     var minutes = 00;
     var hours = 00;
 
-    var appendTens = document.getElementById('tens');
+    var appendMiliseconds = document.getElementById('miliseconds');
     var appendSeconds = document.getElementById('seconds');
     var appendMinute = document.getElementById('minutes')
     var appendHours = document.getElementById('hours')
@@ -27,49 +27,58 @@ window.onload = function () { //Executa o js imediatamente após o carregamento 
 
     buttonReset.onclick = function () {
         clearInterval(Interval);
-        tens = "00";
+        miliseconds = "00";
         seconds = "00"
         minutes = "00"
         hours = "00"
 
-        appendTens.innerHTML = tens;
+        appendMiliseconds.innerHTML = miliseconds;
         appendSeconds.innerHTML = seconds;
-        appendSeconds.innerHTML = minutes;
-        appendSeconds.innerHTML = hours;
+        appendMinute.innerHTML = minutes;
+        appendHours.innerHTML = hours;
     };
 
     function startTimer() {
-        tens++;
-        if (tens <= 9) {
-            appendTens.innerHTML = "0" + tens
+        miliseconds++;
+        if (miliseconds <= 9) {
+            appendMiliseconds.innerHTML =  "0" + miliseconds;
         }
 
-        if (tens > 9) {
-            appendTens.innerHTML = tens
+        if (miliseconds > 9) {
+            appendMiliseconds.innerHTML = miliseconds;
         }
-        if (tens > 99) {
+        if (miliseconds > 99) {
             console.log('seconds');
             seconds++;
             appendSeconds.innerHTML = "0" + seconds;
-            tens = 0;
-            appendTens.innerHTML = "0" + 0;
+            miliseconds = 0;
+            appendMiliseconds.innerHTML = "0" + 0;
         }
-
         if (seconds > 9) {
-            appendSeconds.innerHTML = seconds
-        }
-//editar
-        if (tens > 99) {
-            console.log('minutes');
-            hours++;
-            appendMinutes.innerHTML = "0" + minutes;
-            hours = 0;
-            appendHours.innerHTML = "0" + 0;
+            appendSeconds.innerHTML = seconds;
         }
 
+        if (seconds > 59) {
+            console.log('minute');
+            minutes++;
+            appendMinute.innerHTML = "0" + minutes;
+            seconds = 0;
+            appendSeconds.innerHTML = "0" + 0;
+        }
         if (minutes > 9) {
-            appendMinutes.innerHTML = minutes
+            appendMinutes.innerHTML = minutes;
+        }
+
+        if (minutes > 59) {
+            console.log('hour');
+            hours++;
+            appendHours.innerHTML = "0" + hours;
+            minutes = 0;
+            appendMinute.innerHTML = "0" + 0;
+        }
+        if (hours > 9) {
+            appendHours.innerHTML = hours;
         }
     }
-    
+
 }
