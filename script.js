@@ -28,9 +28,9 @@ window.onload = function () { //Executa o js imediatamente após o carregamento 
     buttonReset.onclick = function () {
         clearInterval(Interval);
         miliseconds = "00";
-        seconds = "00"
-        minutes = "00"
-        hours = "00"
+        seconds = "00";
+        minutes = "00";
+        hours = "00";
 
         appendMiliseconds.innerHTML = miliseconds;
         appendSeconds.innerHTML = seconds;
