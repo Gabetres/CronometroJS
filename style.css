@@ -1,51 +1,198 @@
-@import url('https://fonts.googleapis.com/css2? family= Azeret+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100; 1.200;1.300;1.400;1.500;1.600;1.700; 1.800 ; 1,900 1,500;1,600;1,700;1,800;1,900 & family= Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900 & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --body-bg: #f3f3f3;
+    --box-bg: #f1b32d;
+    --box-bg2: #e8ffaa;
+    --body-color: #000000;
+}
+
+.dark-mode:root {
+    --body-bg: #25293a;
+    --box-bg: #522bdf;
+    --box-bg2: #3877ff;
+    --body-color: #ffffff;
+}
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    transition: 200ms;
 }
-
-.manhã:root{
-    --bg-box:#
-}
-
 
 
 body,
 html {
-    font-family: 'Azeret Mono', monospace;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-
+    background-color: var(--body-bg);
+    font-family: poppins, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 100%;
     height: 100vh;
-    width: 100vw;
+    overflow-x: hidden;
+
 }
 
-h1{
-    padding-bottom: 35px;
+
+
+#mode-icon {
+    color: var(--body-color);
+    position: relative;
+    left: 100%;
+    margin-left: 65px;
+    bottom: 120px;
+    font-size: 60px;
 }
 
-.box{
-    background-color: rgb(255, 255, 255);
-    width: 300px;
-    height: 300px;
-    border-radius: 100%;
-    border: solid #000000 3px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+h1 {
+    font-size: 52px;
+    text-align: center;
+    color: var(--body-color);
 }
 
-.relogio {
-    font-size: 32px;
+.container {
+    display: block;
+    max-width: 100%;
+    margin: auto 5em;
+
+}
+
+.cronometro {
+    padding: 10em;
+    border-radius: 20px;
+    box-shadow: 15px 15px 40px #00000025;
+    background-color: var(--box-bg);
+
+}
+
+.numbers {
+    font-family: 'Chivo Mono', monospace;
     font-weight: 700;
-    
+    text-align: center; 
+    font-size: 50px;
 }
 
+
+.dev {
+    text-align: center;
+}
+
+
+p {
+    text-align: center;
+    font-size: 25px;
+    color: var(--body-color);
+}
+
+.buttons {
+    text-align: center;
+}
+
+.buttons>button {
+    padding: 1em 3em;
+    min-height: 100%;
+    font-size: 20px;
+    margin: 15px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 5px 5px 40px #00000025;
+    background-color: var(--body-bg);
+    color: var(--body-color);
+}
+
+.buttons>button:hover {
+    box-shadow: 5px 5px 40px var(--box-bg2);
+}
+
+@media only screen and (max-width: 768px) {
+
+    #mode-icon {
+        color: var(--body-color);
+        position: relative;
+        left: 60%;
+        margin-left: 65px;
+        bottom: 120px;
+        font-size: 60px;
+    }
+
+    .cronometro {
+        text-align: center;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .container {
+        display: block;
+        margin: 0 auto;
+
+    }
+
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .cronometro {
+        top: 50%;
+        padding: 0;
+        border-radius: 0;
+        background-color: var(--box-bg);
+
+    }
+
+    .container-text {
+        position: relative;
+        top: 15%;
+    }
+
+    #mode-icon {
+        left: 30%;
+        bottom: 0;
+        top: 4%;
+    }
+
+
+
+}
+
+@media only screen and (max-width: 375px) {
+
+    body,
+    html {
+        background-color: var(--box-bg);
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+    #mode-icon {
+        left: 28%;
+    }
+
+    .cronometro {
+        box-shadow: none;
+    }
+
+    .container-text>h1 {
+        font-size: 30px;
+    }
+
+    .numbers {
+        font-size: 40pt;
+    }
+
+    .buttons>button {
+        padding: 0.5em 2em;
+    }
+
+
+
+
+
+
+}

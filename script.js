@@ -1,51 +1,86 @@
-function relogio() {
-    const elementoRelogio = document.querySelector(".relogio");
-    const horaAtual = new Date();
+window.onload = function () { //Executa o js imediatamente após o carregamento de uma pagina.
+    
+    var miliseconds = 000;
+    var seconds = 00;
+    var minutes = 00;
+    var hours = 00;
 
-    const horas = horaAtual.getHours();
-    const minutos = horaAtual.getMinutes();
-    const segundos = horaAtual.getSeconds();
+    var appendMiliseconds = document.getElementById('miliseconds');
+    var appendSeconds = document.getElementById('seconds');
+    var appendMinute = document.getElementById('minutes')
+    var appendHours = document.getElementById('hours')
 
-    const formatoHoras = horas.toString().padStart(2, "0");
-    const formatoMinutos = minutos.toString().padStart(2, "0");
-    const formatoSegundos = segundos.toString().padStart(2, "0");
+    var buttonStart = document.getElementById('button-start');
+    var buttonStop = document.getElementById('button-stop');
+    var buttonReset = document.getElementById('button-reset');
 
-    const frase = document.querySelector(".frase");
-    dia = new Array('Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado');
+    var Interval;
 
-    mes = new Array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Stembro', 'Outubro', 'Novembro', 'Dezembro');
+    buttonStart.onclick = function () {
+        clearInterval(Interval); //metodo que limpa o temporizador que é definido
+        Interval = setInterval(startTimer, 10)
+    };
 
-    hoje = new Date;
+    buttonStop.onclick = function () {
+        clearInterval(Interval);
+    };
 
-    frase.innerHTML = `${dia[hoje.getDay()]} , ${hoje.getDate().toString().padStart(2, "0")} de ${mes[hoje.getMonth()]} de ${hoje.getFullYear()} `
+    buttonReset.onclick = function () {
+        clearInterval(Interval);
+        miliseconds = "00";
+        seconds = "00"
+        minutes = "00"
+        hours = "00"
 
-    const esta = document.querySelector(".esta")
+        appendMiliseconds.innerHTML = miliseconds;
+        appendSeconds.innerHTML = seconds;
+        appendMinute.innerHTML = minutes;
+        appendHours.innerHTML = hours;
+    };
 
-    dianoite = new Array('Madrugada','Manhã', 'Tarde', 'Noite');
+    function startTimer() {
+        miliseconds++;
+        if (miliseconds <= 9) {
+            appendMiliseconds.innerHTML =  "0" + miliseconds;
+        }
 
-    if (horas >= 0) {
-        esta.innerHTML = `Esta de ${dianoite[0]}`
-        html.classList.toggle('madrugada');
+        if (miliseconds > 9) {
+            appendMiliseconds.innerHTML = miliseconds;
+        }
+        if (miliseconds > 99) {
+            console.log('seconds');
+            seconds++;
+            appendSeconds.innerHTML = "0" + seconds;
+            miliseconds = 0;
+            appendMiliseconds.innerHTML = "0" + 0;
+        }
+        if (seconds > 9) {
+            appendSeconds.innerHTML = seconds;
+        }
+
+        if (seconds > 59) {
+            console.log('minute');
+            minutes++;
+            appendMinute.innerHTML = "0" + minutes;
+            seconds = 0;
+            appendSeconds.innerHTML = "0" + 0;
+        }
+
+        
+        if (minutes > 9) {
+            appendMinute.innerHTML = minutes;
+        }
+
+        if (minutes > 59) {
+            console.log('hour');
+            hours++;
+            appendHours.innerHTML = "0" + hours;
+            minutes = 0;
+            appendMinute.innerHTML = "0" + 0;
+        }
+        if (hours > 9) {
+            appendHours.innerHTML = hours;
+        }
     }
 
-    if(horas >= 6){
-        esta.innerHTML = `Esta de ${dianoite[1]}`
-        html.classList.toggle('manha');
-    }
-
-    if (horas >= 13) {
-        esta.innerHTML = `Esta de ${dianoite[2]}`
-        html.classList.toggle('tarde');
-    }
-
-    if (horas >= 18) {
-        esta.innerHTML = `Esta de ${dianoite[3]}`
-        html.classList.toggle('noite');
-    }
-
-
-
-
-    elementoRelogio.textContent = `${formatoHoras}:${formatoMinutos}:${formatoSegundos}`
 }
-setInterval(relogio, 1000);
